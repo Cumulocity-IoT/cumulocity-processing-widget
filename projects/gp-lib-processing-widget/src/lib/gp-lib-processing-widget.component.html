@@ -1,0 +1,27 @@
+<div>
+    <div class="header1sub2">
+      <div style="flex-grow: 1; text-align: left;">
+        <label class="heading-text">&nbsp;&nbsp;STATUS:&nbsp; </label>
+        <label style="font-weight: 400;">{{displayStatus[index]}}</label>
+      </div>
+      <div style="flex-grow: 1; text-align: right;margin-right: 20px;">
+        <label class="heading-text">TIME:&nbsp; </label>
+        <label style="font-weight: 400;">{{arrivalTime | date: 'MMM d, y, h:mm:ss a' }}</label>
+      </div>
+    </div>
+  <div class="process-div">
+    <div class="single-process-div" *ngFor="let element of displayStatus; let indexOfElement = index;">
+      <div class="content-div">
+        <button mat-fab
+          [ngClass]="{'status-completed': indexOfElement < index, 'status-inProces' : indexOfElement == index , 'status-default': indexOfElement > index  }">
+          <mat-icon>{{matImages[indexOfElement]}}</mat-icon>
+        </button>
+        <div class="process-connecting-div"
+          [ngClass]="{'process-arrow-inprocess': indexOfElement == index-1, 'process-arrow-done' : indexOfElement < index-1 , 'process-arrow-default': indexOfElement > index-1  }"
+          *ngIf="displayStatus.length - 1 !== indexOfElement"></div>
+      </div>
+      <label>{{displayStatus[indexOfElement]}}</label>
+    </div>
+
+  </div>
+</div>
