@@ -84,7 +84,7 @@ npm i <binary  file  path>/gp-lib-processing-widget-1.0.0.tgz
 @import '~@c8y/style/main.less';
 @import '~@c8y/style/extend.less';
 ```
-6. Import GpLibEventChartModule in app.module.ts and also place the imported Module under `@NgModule`.
+6. Import GpLibProcessingWidgetModule in app.module.ts and also place the imported Module under `@NgModule`.
 
 ```
 
@@ -121,7 +121,7 @@ npm run deploy
 
   - Angular fontawesome version 4.7.2
 
-    Installation command:  ```npm i @angular/cdk@8.2.3 ``` 
+      Installation command:  ```npm i @angular/fontawesome@4.7.2 ``` 
 
   - Angular Material version 8.2.3
 
@@ -262,11 +262,11 @@ Table Values - add as many rows as many process steps are there
 
 ### Report a bug
 
-Create a new issue in the [Issues](https://labcase.softwareag.com/projects/gp-event-chart/issues) section of this Labcase project and assign it to *Owner Full Name*. Set the tracker to `Bug` and provide a meaningful title. Make sure to describe the bug as detailed as possible and how the bug can be reproduced.
+Create a new issue in the [Issues](https://labcase.softwareag.com/projects/gp-processing/issues) section of this Labcase project and assign it to *Owner Full Name*. Set the tracker to `Bug` and provide a meaningful title. Make sure to describe the bug as detailed as possible and how the bug can be reproduced.
 
 ### Request a feature
 
-Create a new issue in the [Issues](https://labcase.softwareag.com/projects/gp-event-chart/issues) section of this Labcase project and assign it to *Owner Full Name*. Set the tracker to `Requirement` and provide a meaningful title. Shortly describe the feature.
+Create a new issue in the [Issues](https://labcase.softwareag.com/projectsgp-processing/issues) section of this Labcase project and assign it to *Owner Full Name*. Set the tracker to `Requirement` and provide a meaningful title. Shortly describe the feature.
 
 
 ------------------------------

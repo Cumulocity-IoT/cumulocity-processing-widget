@@ -16,55 +16,49 @@
 * limitations under the License.
  */
 
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-
+import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import * as fa from 'fontawesome';
 import { FormControl} from '@angular/forms';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 @Component({
+    // tslint:disable-next-line: component-selector
     selector: 'icon-selector',
     templateUrl: './icon-selector.component.html'
 })
-export class IconSelectorComponent {
-    @Input() value: string;
-    @Output() valueChange = new EventEmitter<string>();
-    stateCtrl = new FormControl();
-    filteredItems: Observable<any>;
+export class IconSelectorComponent implements OnInit {
+  @Input() value: string;
+  @Output() valueChange = new EventEmitter<string>();
+  stateCtrl = new FormControl();
+  filteredItems: Observable<any>;
 
-    // Create a list of all icons
-    items = Object.keys(fa)
-        .filter(name => !['html5', 's15', '500px'].includes(name))
-        .map(name => name.replace(/[A-Z0-9]/g, match => '-' + match.toLowerCase()))
-        .concat(['html5', 's15', '500px'])
-        .sort()
-        .map(name => ({
-            name: name.replace(/-/g, ' ').replace(/\b[a-z]/g, match => match.toUpperCase()),
-            className: name.toLowerCase()
-        }));
+  // Create a list of all icons
+  items = Object.keys(fa)
+      .filter(name => !['html5', 's15', '500px'].includes(name))
+      .map(name => name.replace(/[A-Z0-9]/g, match => '-' + match.toLowerCase()))
+      .concat(['html5', 's15', '500px'])
+      .sort()
+      .map(name => ({
+          name: name.replace(/-/g, ' ').replace(/\b[a-z]/g, match => match.toUpperCase()),
+          className: name.toLowerCase()
+      }));
 
-    // opened(select) {
-    //     setTimeout(() => {
-    //         select.dropdownPanel._updatePosition();
-    //     }, 25);
-    // }
-    ngOnInit() {
-        console.log('NgOnInit Value', this.value);
-        this.stateCtrl.setValue(this.value);
+  ngOnInit() {
+      this.stateCtrl.setValue(this.value);
+  }
+  displayFn(value): string | undefined {
+      return value ?  value.name : undefined;
     }
-    displayFn(value): string | undefined {
-        return value ?  value.name : undefined;
-      }
-    constructor() {
-        console.log('Value', this.value);
-        this.filteredItems = this.stateCtrl.valueChanges
-          .pipe(
-            startWith(''),
-            map(state => state ? this._filterStates(state) : this.items.slice())
-          );
-      }
-      private _filterStates(value: string): any {
-        const filterValue = value.toLowerCase();
-        return this.items.filter(state => state.name.toLowerCase().includes(filterValue));
-      }
+  constructor() {
+      this.filteredItems = this.stateCtrl.valueChanges
+        .pipe(
+          startWith(''),
+          map(state => state ? this._filterStates(state) : this.items.slice())
+        );
+  }
+  // Filters the items array based on entered key in input
+  private _filterStates(value: string): any {
+    const filterValue = value.toLowerCase();
+    return this.items.filter(state => state.name.toLowerCase().includes(filterValue));
+  }
 }

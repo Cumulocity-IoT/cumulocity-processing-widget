@@ -17,7 +17,6 @@
  */
 
 import {NgModule} from '@angular/core';
-// import {NgSelectModule} from "@ng-select/ng-select";
 import {IconSelectorComponent} from './icon-selector.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CoreModule} from '@c8y/ngx-components';
@@ -25,7 +24,6 @@ import { MatSelectModule, MatAutocompleteModule, MatFormFieldModule, MatInputMod
 
 @NgModule({
     imports: [
-       // NgSelectModule,
         FormsModule,
         CoreModule,
         MatSelectModule,

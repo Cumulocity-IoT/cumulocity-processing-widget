@@ -1,83 +1,66 @@
 <div class="form-group">
-   
-    <div style="display: flex;">
-        <div style="flex-grow:1 ; margin-right: 5px;">
-            <label translate>Event Type</label>
-            <input class="form-control" style="width: 100%" type="text" name="config.indoorEventType" [(ngModel)]="config.indoorEventType"/>
-        </div>
-        <div style=" flex-grow: 1; margin-right: 5px;">
-            <label translate>Field Name</label>
-            <input class="form-control" style="width: 100%" type="text" name="config.fieldName" [(ngModel)]="config.fieldName"/>
-        </div>
-      
-    </div><br>
-    <!-- <div style="display: flex;">
-        <div style=" flex-grow: 1; margin-right: 5px;">
-            <label translate>Field values</label>
-            <input class="form-control" style="width: 100%" type="text" placeholder="Add field values semilcolon separated and in same order of diplay status " name="config.fieldValue" [(ngModel)]="config.fieldValue"/>
-        </div>
-        <div style=" flex-grow: 1; margin-right: 5px;">
-            <label translate>Display Status</label>
-            <input class="form-control" style="width: 100%" type="text" name="config.displayStatus" [(ngModel)]="config.displayStatus"/>
-        </div>
-        
-    </div><br> -->
 
-    <!-- <div class="form-group">
-      <label for="faicon"><span>Icon</span></label>
-      <icon-selector id="faicon" name="faicon" [(value)]="appIcon"></icon-selector>
-  </div> -->
-    <div class="process-input" *ngIf="dataLoaded | async">
-        <table mat-table [dataSource]="config.dataSource" class="mat-elevation-z8 table-card">
-
-            <!-- Display Status Column -->
-            <ng-container matColumnDef="displayStatus">
-              <th mat-header-cell *matHeaderCellDef> Display Status </th>
-              <td mat-cell *matCellDef="let element"> 
-                <mat-form-field class="example-full-width">
-                    <input matInput  type="text" name="displayStatus" [(ngModel)]="element.displayStatus" />
-                </mat-form-field>
-              </td>
-            </ng-container>
-          
-            <!-- Field Value Column -->
-            <ng-container matColumnDef="fieldValue">
-              <th mat-header-cell *matHeaderCellDef> Field Value </th>
-              <td mat-cell *matCellDef="let element"> 
-                <mat-form-field class="example-full-width">
-                    <input matInput type="text" [(ngModel)]="element.fieldValue" />
-                </mat-form-field>
-              </td>
-            </ng-container>
-          
-            <!-- Icon Column -->
-            <ng-container matColumnDef="icon">
-              <th mat-header-cell *matHeaderCellDef> Icon </th>
-              <td mat-cell *matCellDef="let element"> 
-                <!-- <mat-form-field class="example-full-width">
-                    <input matInput type="text" name="icon" [(ngModel)]="element.matIcon" />
-                </mat-form-field> -->
-                <icon-selector id="icon" name="icon" [(value)]="element.matIcon"></icon-selector>
-              </td>
-            </ng-container>
-          
-            <!-- Action Column -->
-            <ng-container matColumnDef="action">
-              <th mat-header-cell *matHeaderCellDef> Action </th>
-              <td mat-cell *matCellDef="let element ; let i = index">  
-                <button mat-icon-button aria-label="Delete Row">
-                    <i matTooltip="Delete Row" class="fa fa-trash fa-lg fa-icon-action" (click)="deleteRow(i)"></i>
-                </button>
-                <button mat-icon-button aria-label="Insert New Row">
-                <i matTooltip="Insert New Row" class="fa fa-plus fa-lg fa-icon-action" (click)="addNewRow(i)"></i> 
-                </button>
-            </td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-          
-          
+  <div style="display: flex;">
+    <div style="flex-grow:1 ; margin-right: 5px;">
+      <label translate>Event Type</label>
+      <input class="form-control" style="width: 100%" type="text" name="config.indoorEventType"
+        [(ngModel)]="config.indoorEventType" />
     </div>
+    <div style=" flex-grow: 1; margin-right: 5px;">
+      <label translate>Field Name</label>
+      <input class="form-control" style="width: 100%" type="text" name="config.fieldName"
+        [(ngModel)]="config.fieldName" />
+    </div>
+
+  </div><br>
+  <div class="process-input" *ngIf="dataLoaded | async">
+    <table mat-table [dataSource]="config.dataSource" class="mat-elevation-z8 table-card">
+
+      <!-- Display Status Column -->
+      <ng-container matColumnDef="displayStatus">
+        <th mat-header-cell *matHeaderCellDef> Display Status </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" name="displayStatus" [(ngModel)]="element.displayStatus" />
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <!-- Field Value Column -->
+      <ng-container matColumnDef="fieldValue">
+        <th mat-header-cell *matHeaderCellDef> Field Value </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" [(ngModel)]="element.fieldValue" />
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <!-- Icon Column -->
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef> Icon </th>
+        <td mat-cell *matCellDef="let element">
+          <icon-selector id="icon" name="icon" [(value)]="element.matIcon"></icon-selector>
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element ; let i = index">
+          <button mat-icon-button aria-label="Delete Row">
+            <i matTooltip="Delete Row" class="fa fa-trash fa-lg fa-icon-action" (click)="deleteRow(i)"></i>
+          </button>
+          <button mat-icon-button aria-label="Insert New Row">
+            <i matTooltip="Insert New Row" class="fa fa-plus fa-lg fa-icon-action" (click)="addNewRow(i)"></i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+  </div>
 </div>
