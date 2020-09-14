@@ -24,13 +24,15 @@
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
     "rxjs": "~6.4.0",
+    "moment": "^2.26.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1",
     "@angular/material": "^8.2.3",
     "@angular/upgrade": "8.2.13",
     "@c8y/client": "^1006.3.0",
     "@c8y/ng1-modules": "^1006.3.0",
-    "@c8y/ngx-components": "^1006.3.0"
+    "@c8y/ngx-components": "^1006.3.0",
+    "fontawesome": "^4.7.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.2",

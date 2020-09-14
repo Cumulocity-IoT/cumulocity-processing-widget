@@ -1,0 +1,12 @@
+
+
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Icon Name" aria-label="Icon Name" [matAutocomplete]="auto" [formControl]="stateCtrl" />
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected) ="valueChange.emit($event.option.value)" [displayWith]="displayFn">
+      <mat-option *ngFor="let item of filteredItems | async" [value]="item">
+        <i [c8yIcon]="item.className" style="margin-right: 5px"></i>
+        <span>{{item.name}} ({{item.className}})</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+

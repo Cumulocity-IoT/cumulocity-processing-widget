@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { GpLibProcessingWidgetComponent } from './gp-lib-processing-widget.component';
 import { CoreModule, HOOK_COMPONENTS} from '@c8y/ngx-components';
 import {GpLibProcessingConfig} from './gp-lib-processing-widget-config.component';
-import {MatButtonModule, MatCardModule, MatIconModule, MatStepperModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatStepperModule, MatTableModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import { IconSelectorModule } from './icon-selector/icon-selector.module';
 
 @NgModule({
   declarations: [GpLibProcessingWidgetComponent, GpLibProcessingConfig],
@@ -11,7 +12,11 @@ import {MatButtonModule, MatCardModule, MatIconModule, MatStepperModule} from '@
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    IconSelectorModule
   ],
   entryComponents: [GpLibProcessingWidgetComponent, GpLibProcessingConfig],
   providers: [

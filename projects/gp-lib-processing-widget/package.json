@@ -1,6 +1,6 @@
 {
   "name": "gp-lib-processing-widget",
-  "version": "0.1.0",
+  "version": "0.77.0",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"

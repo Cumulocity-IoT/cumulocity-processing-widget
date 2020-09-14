@@ -14,7 +14,8 @@
       <div class="content-div">
         <button mat-fab
           [ngClass]="{'status-completed': indexOfElement < index, 'status-inProces' : indexOfElement == index , 'status-default': indexOfElement > index  }">
-          <mat-icon>{{matImages[indexOfElement]}}</mat-icon>
+        
+          <i [ngClass]="'fa fa-'+matImages[indexOfElement] +' fa-2x'"></i>
         </button>
         <div class="process-connecting-div"
           [ngClass]="{'process-arrow-inprocess': indexOfElement == index-1, 'process-arrow-done' : indexOfElement < index-1 , 'process-arrow-default': indexOfElement > index-1  }"
