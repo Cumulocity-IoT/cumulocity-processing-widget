@@ -54,9 +54,8 @@ export class GpLibProcessingWidgetComponent implements OnInit {
       withTotalPages: true,
     };
     response = (await this.inventory.childDevicesList(this.deviceId, filter)).data;
-
-    // Check that the response is a Group and not a device
-    if (response.hasOwnProperty('c8y_IsDevice')) {
+    // Check that whether the device has child devices or not
+    if (response.length === 0) {
       this.fetchCurrentState(this.deviceId);
     } else {
       response.forEach(device => {
@@ -68,6 +67,7 @@ export class GpLibProcessingWidgetComponent implements OnInit {
   fetchCurrentState(deviceId) {
     const moment = moment_;
     const now = moment();
+
     // fetches the events for each device based of date
     this.events.listBySource$(deviceId,  { pageSize: 3,
       type: this.config.indoorEventType,
@@ -81,15 +81,15 @@ export class GpLibProcessingWidgetComponent implements OnInit {
       const lastEvent = res[0];
       if (lastEvent.type === this.config.indoorEventType) {
         if (lastEvent.hasOwnProperty(this.config.fieldName)) {
-          this.arrivalTime = lastEvent.time;
+          this.arrivalTime = lastEvent.creationTime;
           this.statusValue = lastEvent[this.config.fieldName];
           this.fieldValue.map((singleValue, index) => {
             if (this.statusValue.includes(singleValue)) {
               this.index = index;
             }
           });
-        } else {
-            this.index = this.displayStatus.length;
+        } else if (this.arrivalTime !== undefined && Date.parse(this.arrivalTime) < Date.parse(lastEvent.creationTime)) {
+            this.index = this.displayStatus.length - 1;
         }
       }
     });
@@ -104,7 +104,7 @@ export class GpLibProcessingWidgetComponent implements OnInit {
           const lastEvent = eventData.data;
           if (lastEvent.type === this.config.indoorEventType) {
             if (lastEvent.hasOwnProperty(this.config.fieldName)) {
-              this.arrivalTime = lastEvent.time;
+              this.arrivalTime = lastEvent.creationTime;
               this.statusValue = lastEvent[this.config.fieldName];
               this.fieldValue.map((singleValue, index) => {
                 if (this.statusValue.includes(singleValue)) {
@@ -112,7 +112,7 @@ export class GpLibProcessingWidgetComponent implements OnInit {
                 }
               });
             } else {
-              this.index = this.displayStatus.length;
+              this.index = this.displayStatus.length - 1;
             }
           }
       }

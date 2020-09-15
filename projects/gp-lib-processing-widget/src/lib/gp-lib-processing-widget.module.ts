@@ -28,7 +28,7 @@ import {MatButtonModule,
         MatFormFieldModule,
         MatInputModule} from '@angular/material';
 import { IconSelectorModule } from './icon-selector/icon-selector.module';
-
+import * as preview from './preview-image';
 @NgModule({
   declarations: [GpLibProcessingWidgetComponent, GpLibProcessingConfig],
   imports: [
@@ -51,6 +51,7 @@ import { IconSelectorModule } from './icon-selector/icon-selector.module';
             id: 'trolley-processing.widget',
             label: 'Processing Widget',
             description: 'Processing Widget',
+            previewImage: preview.previewImage,
             component: GpLibProcessingWidgetComponent,
             configComponent: GpLibProcessingConfig,
             data : {
