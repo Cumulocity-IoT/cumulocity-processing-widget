@@ -64,11 +64,37 @@ export class GpLibProcessingWidgetComponent implements OnInit {
     }
   }
   // Fetches the current state for a particular device Id
-  fetchCurrentState(deviceId) {
+ async fetchCurrentState(deviceId) {
     const moment = moment_;
     const now = moment();
+    // const filter = { pageSize: 3,
+    //   source: deviceId,
+    //   type: this.config.indoorEventType,
+    //   dateTo: now.add(1, 'days').format('YYYY-MM-DD'),
+    //   dateFrom: '1970-01-01',
+    //   revert: false
+    // };
+    // const { data, res, paging } = await this.events.list(filter);
+    // console.log(data);
+    // console.log(res);
+    // const lastEvent = data[0];
+    // if (lastEvent.type === this.config.indoorEventType) {
+    //   if (lastEvent.hasOwnProperty(this.config.fieldName)) {
+    //     this.arrivalTime = lastEvent.creationTime;
+    //     this.statusValue = lastEvent[this.config.fieldName];
+    //     this.fieldValue.map((singleValue, index) => {
+    //       if (this.statusValue.includes(singleValue)) {
+    //         this.index = index;
+    //       }
+    //     });
+    //   } else if (this.arrivalTime !== undefined && Date.parse(this.arrivalTime) < Date.parse(lastEvent.creationTime)) {
+    //       this.index = this.displayStatus.length - 1;
+    //   }
+    // }
 
     // fetches the events for each device based of date
+
+    // tslint:disable-next-line: deprecation
     this.events.listBySource$(deviceId,  { pageSize: 3,
       type: this.config.indoorEventType,
       dateTo: now.add(1, 'days').format('YYYY-MM-DD'),

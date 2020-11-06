@@ -26,11 +26,15 @@ import {MatButtonModule,
         MatStepperModule,
         MatTableModule,
         MatFormFieldModule,
-        MatInputModule} from '@angular/material';
+        MatInputModule,
+        MatSelectModule,
+        MatAutocompleteModule} from '@angular/material';
 import { IconSelectorModule } from './icon-selector/icon-selector.module';
 import * as preview from './preview-image';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {IconSelectorComponent} from './icon-selector/icon-selector.component';
 @NgModule({
-  declarations: [GpLibProcessingWidgetComponent, GpLibProcessingConfig],
+  declarations: [GpLibProcessingWidgetComponent, GpLibProcessingConfig, IconSelectorComponent],
   imports: [
     CoreModule,
     MatButtonModule,
@@ -40,9 +44,14 @@ import * as preview from './preview-image';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    IconSelectorModule
+    FormsModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
-  entryComponents: [GpLibProcessingWidgetComponent, GpLibProcessingConfig],
+  entryComponents: [GpLibProcessingWidgetComponent, GpLibProcessingConfig, IconSelectorComponent],
+  exports: [GpLibProcessingWidgetComponent, GpLibProcessingConfig, IconSelectorComponent],
   providers: [
     {
         provide: HOOK_COMPONENTS,

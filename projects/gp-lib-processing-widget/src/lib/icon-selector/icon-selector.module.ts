@@ -23,20 +23,5 @@ import {CoreModule} from '@c8y/ngx-components';
 import { MatSelectModule, MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
-    imports: [
-        FormsModule,
-        CoreModule,
-        MatSelectModule,
-        MatAutocompleteModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule
-    ],
-    declarations: [
-        IconSelectorComponent
-    ],
-    exports: [
-        IconSelectorComponent
-    ]
 })
 export class IconSelectorModule {}
