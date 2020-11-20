@@ -1,4 +1,4 @@
-# Cumulocity Widget - Process Widget 
+# Cumulocity Widget - Process Widget [<img width="35" src="https://user-images.githubusercontent.com/67993842/97668428-f360cc80-1aa7-11eb-8801-da578bda4334.png"/>](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/processing-runtime-widget-1.0.0.zip)
 
 ##  Overview
 
@@ -13,19 +13,31 @@ To deliver the expected functionality one need to set/select the following confi
  5. Field value for each state (atleast 1)
  6. mat-icon name for each state(select)
 
+## Use Case
+
+![process-widget](https://user-images.githubusercontent.com/67993842/99773965-33f5b800-2b33-11eb-98da-ba870cf324cf.PNG)
+
  ## Features
 
  *  **Support single device and group devices:** Based on widget configuration.
  *  **Display realtime process update:** whenever a new event is triggered it updates the state based on the field value
  * **Displays the current state of the process:** Displays the current state based on last event status.
 
- ## Installation
+
   
-**Supported Cumulocity Environments:**
+## Supported Cumulocity Environments:
   
 *  **App Builder:** Tested with Cumulocity App Builder version 1.2.1.
   
 *  **Cockpit Application:** Tested with Cockpit 1006.3.0 with [Patch Fix](https://www.npmjs.com/package/cumulocity-runtime-widget-loader).
+
+ ## Installation
+ 
+ ### Runtime Widget Deployment?
+
+* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/processing-runtime-widget-1.0.0.zip) and follow runtime deployment instruction from [here](https://github.com/SoftwareAG/cumulocity-runtime-widget-loader).
+
+### Installation of widget through Appbuilder or Cockipt Deployment?
 
 **Prerequisites:**
   
@@ -67,7 +79,7 @@ To deliver the expected functionality one need to set/select the following confi
      Installation command: ```npm i @angular/material@8.2.3 ``` 
 
 
-2. Grab the Process Widget **[Latest Release Binary](https://labcase.softwareag.com/projects/gp-event-chart/storage/show/Releases/gp-processing-1.0.0.tgz)**
+2. Grab the Process Widget **[Latest Release Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/gp-processing-1.1.0.tgz)**
 
 3. Install the Binary file in app builder.
 
@@ -128,7 +140,7 @@ npm run deploy
      Installation command: ```npm i @angular/material@8.2.3 ``` 
 
 
-2. Grab the Event Chart **[Latest Release Binary](https://labcase.softwareag.com/projects/gp-event-chart/storage/show/Releases/gp-processing-1.0.0.tgz)**
+2. Grab the Event Chart **[Latest Release Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/gp-processing-1.1.0.tgz)**
 
 3. Install the Binary file in app builder.
 
@@ -197,7 +209,7 @@ npm run deploy
 
 1. Clone the repository:
 ```
-git clone git@labcase.softwareag.com:labcase/gp-process-widget.git
+git clone https://github.com/SoftwareAG/cumulocity-processing-widget.git
 ```
 2. Change directory:
 
@@ -247,6 +259,8 @@ Congratulations! Process Widget is configured.
   
 ## User Guide
 
+![process-widget-config](https://user-images.githubusercontent.com/67993842/99774058-54257700-2b33-11eb-803c-d74674ccd225.PNG)
+
 1. Target Assets/Devices - deviceid/groupid of interest
 2. Event Type - name of the event type
 3. Field Name - The key name from event object whose value will decide the state.
@@ -260,13 +274,6 @@ Table Values - add as many rows as many process steps are there
 
 ## Troubleshooting
 
-### Report a bug
-
-Create a new issue in the [Issues](https://labcase.softwareag.com/projects/gp-processing/issues) section of this Labcase project and assign it to *Owner Full Name*. Set the tracker to `Bug` and provide a meaningful title. Make sure to describe the bug as detailed as possible and how the bug can be reproduced.
-
-### Request a feature
-
-Create a new issue in the [Issues](https://labcase.softwareag.com/projectsgp-processing/issues) section of this Labcase project and assign it to *Owner Full Name*. Set the tracker to `Requirement` and provide a meaningful title. Shortly describe the feature.
 
 
 ------------------------------
