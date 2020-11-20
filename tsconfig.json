@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "gp-lib-processing-widget": [
-        "dist/gp-lib-processing-widget"
+      "gp-processing": [
+        "dist/gp-processing"
       ],
-      "gp-lib-processing-widget/*": [
-        "dist/gp-lib-processing-widget/*"
+      "gp-processing/*": [
+        "dist/gp-processing/*"
       ]
     }
   },

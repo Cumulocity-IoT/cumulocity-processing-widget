@@ -121,33 +121,33 @@
         }
       }
     },
-    "gp-lib-processing-widget": {
+    "gp-processing": {
       "projectType": "library",
-      "root": "projects/gp-lib-processing-widget",
-      "sourceRoot": "projects/gp-lib-processing-widget/src",
+      "root": "projects/gp-processing",
+      "sourceRoot": "projects/gp-processing/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/gp-lib-processing-widget/tsconfig.lib.json",
-            "project": "projects/gp-lib-processing-widget/ng-package.json"
+            "tsConfig": "projects/gp-processing/tsconfig.lib.json",
+            "project": "projects/gp-processing/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/gp-lib-processing-widget/src/test.ts",
-            "tsConfig": "projects/gp-lib-processing-widget/tsconfig.spec.json",
-            "karmaConfig": "projects/gp-lib-processing-widget/karma.conf.js"
+            "main": "projects/gp-processing/src/test.ts",
+            "tsConfig": "projects/gp-processing/tsconfig.spec.json",
+            "karmaConfig": "projects/gp-processing/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/gp-lib-processing-widget/tsconfig.lib.json",
-              "projects/gp-lib-processing-widget/tsconfig.spec.json"
+              "projects/gp-processing/tsconfig.lib.json",
+              "projects/gp-processing/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

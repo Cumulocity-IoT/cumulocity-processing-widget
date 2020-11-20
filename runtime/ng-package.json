@@ -4,7 +4,7 @@
     "styles/**/*"
   ],
   "lib": {
-    "entryFile": "../projects/gp-lib-processing-widget/src/public-api.ts",
+    "entryFile": "../projects/gp-processing/src/public-api.ts",
     "umdModuleIds": {
       "@c8y/ngx-components": "@c8y/ngx-components"
     },

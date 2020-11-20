@@ -67,12 +67,12 @@ To deliver the expected functionality one need to set/select the following confi
      Installation command: ```npm i @angular/material@8.2.3 ``` 
 
 
-2. Grab the Process Widget **[Latest Release Binary](https://labcase.softwareag.com/projects/gp-event-chart/storage/show/Releases/gp-lib-processing-widget-1.0.0.tgz)**
+2. Grab the Process Widget **[Latest Release Binary](https://labcase.softwareag.com/projects/gp-event-chart/storage/show/Releases/gp-processing-1.0.0.tgz)**
 
 3. Install the Binary file in app builder.
 
 ```
-npm i <binary  file  path>/gp-lib-processing-widget-1.0.0.tgz
+npm i <binary  file  path>/gp-processing-1.0.0.tgz
 ```
 
 4. Open index.less located at /cumulocity-app-builder/ui-assets/
@@ -88,7 +88,7 @@ npm i <binary  file  path>/gp-lib-processing-widget-1.0.0.tgz
 
 ```
 
-import {GpLibProcessingWidgetModule} from 'gp-lib-processing-widget';
+import {GpLibProcessingWidgetModule} from 'gp-processing';
 
 @NgModule({
 
@@ -128,12 +128,12 @@ npm run deploy
      Installation command: ```npm i @angular/material@8.2.3 ``` 
 
 
-2. Grab the Event Chart **[Latest Release Binary](https://labcase.softwareag.com/projects/gp-event-chart/storage/show/Releases/gp-lib-processing-widget-1.0.0.tgz)**
+2. Grab the Event Chart **[Latest Release Binary](https://labcase.softwareag.com/projects/gp-event-chart/storage/show/Releases/gp-processing-1.0.0.tgz)**
 
 3. Install the Binary file in app builder.
 
 ```
-npm i <binary  file  path>/gp-lib-processing-widget-1.0.0.tgz
+npm i <binary  file  path>/gp-processing-1.0.0.tgz
 ```
 
 **Note:** If you don't find branding folder then please follow [Cumulocity Branding](https://cumulocity.com/guides/web/angular/#branding)
@@ -156,7 +156,7 @@ npm i <binary  file  path>/gp-lib-processing-widget-1.0.0.tgz
 
   ```
 
-import {GpLibProcessingWidgetModule} from 'gp-lib-processing-widget';
+import {GpLibProcessingWidgetModule} from 'gp-processing';
 
   @NgModule({
 

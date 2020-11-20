@@ -12,3 +12,6 @@
   th.mat-header-cell {
     padding-left: 15px !important;
   }
+  .cdk-overlay-container{
+    z-index: 1100;
+}

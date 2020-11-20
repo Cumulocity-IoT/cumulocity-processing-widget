@@ -42,7 +42,7 @@ import {IconSelectorComponent} from './icon-selector/icon-selector.component';
     MatIconModule,
     MatStepperModule,
     MatTableModule,
-    MatFormFieldModule,
+ //   MatFormFieldModule,
     MatInputModule,
     FormsModule,
     MatSelectModule,
