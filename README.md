@@ -1,4 +1,4 @@
-# Cumulocity Widget - Process Widget [<img width="35" src="https://user-images.githubusercontent.com/67993842/97668428-f360cc80-1aa7-11eb-8801-da578bda4334.png"/>](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/processing-runtime-widget-1.0.0.zip)
+# Cumulocity Widget - Process Widget [<img width="35" src="https://user-images.githubusercontent.com/67993842/97668428-f360cc80-1aa7-11eb-8801-da578bda4334.png"/>](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.2.0/processing-runtime-widget-1.2.0.zip)
 
 ##  Overview
 
@@ -27,7 +27,7 @@ To deliver the expected functionality one need to set/select the following confi
   
 ## Supported Cumulocity Environments:
   
-*  **App Builder:** Tested with Cumulocity App Builder version 1.2.1.
+*  **App Builder:** Tested with Cumulocity App Builder version 1.2.7.
   
 *  **Cockpit Application:** Tested with Cockpit 1006.3.0 with [Patch Fix](https://www.npmjs.com/package/cumulocity-runtime-widget-loader).
 
@@ -35,7 +35,7 @@ To deliver the expected functionality one need to set/select the following confi
  
  ### Runtime Widget Deployment?
 
-* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/processing-runtime-widget-1.0.0.zip) and follow runtime deployment instruction from [here](https://github.com/SoftwareAG/cumulocity-runtime-widget-loader).
+* This widget support runtime deployment. Download [Runtime Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.2.0/processing-runtime-widget-1.2.0.zip) and follow runtime deployment instruction from [here](https://github.com/SoftwareAG/cumulocity-runtime-widget-loader).
 
 ### Installation of widget through Appbuilder or Cockipt Deployment?
 
@@ -43,7 +43,7 @@ To deliver the expected functionality one need to set/select the following confi
   
 * Git
   
-* NodeJS (release builds are currently built with `v10.19.0`)
+* NodeJS (release builds are currently built with `v16.9.1`)
   
 * NPM (Included with NodeJS)
   
@@ -79,12 +79,12 @@ To deliver the expected functionality one need to set/select the following confi
      Installation command: ```npm i @angular/material@8.2.3 ``` 
 
 
-2. Grab the Process Widget **[Latest Release Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/gp-processing-1.1.0.tgz)**
+2. Grab the Process Widget **[Latest Release Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.2.0/gp-processing-1.2.0.tgz)**
 
 3. Install the Binary file in app builder.
 
 ```
-npm i <binary  file  path>/gp-processing-1.0.0.tgz
+npm i <binary  file  path>/gp-processing-1.2.0.tgz
 ```
 
 4. Open index.less located at /cumulocity-app-builder/ui-assets/
@@ -140,12 +140,12 @@ npm run deploy
      Installation command: ```npm i @angular/material@8.2.3 ``` 
 
 
-2. Grab the Event Chart **[Latest Release Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.1.0/gp-processing-1.1.0.tgz)**
+2. Grab the Event Chart **[Latest Release Binary](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/1.2.0/gp-processing-1.2.0.tgz)**
 
 3. Install the Binary file in app builder.
 
 ```
-npm i <binary  file  path>/gp-processing-1.0.0.tgz
+npm i <binary  file  path>/gp-processing-1.2.0.tgz
 ```
 
 **Note:** If you don't find branding folder then please follow [Cumulocity Branding](https://cumulocity.com/guides/web/angular/#branding)
