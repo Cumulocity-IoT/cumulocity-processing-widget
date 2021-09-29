@@ -19,6 +19,7 @@
 import { Component, Input, ViewEncapsulation, OnInit } from '@angular/core';
 
 @Component({
+    selector: 'lib-gp-lib-processing-widget-config',
     templateUrl: './gp-lib-processing-widget-config.component.html',
     styleUrls: ['./gp-lib-processing-widget-config.component.css'],
     encapsulation: ViewEncapsulation.None

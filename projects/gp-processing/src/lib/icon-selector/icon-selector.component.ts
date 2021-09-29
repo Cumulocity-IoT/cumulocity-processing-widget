@@ -61,4 +61,14 @@ export class IconSelectorComponent implements OnInit {
     const filterValue = value.toLowerCase();
     return this.items.filter(state => state.name.toLowerCase().includes(filterValue));
   }
+  opened(select) {
+    setTimeout(() => {
+        try {
+            select.dropdownPanel._updatePosition();
+        }
+        catch (e) {
+            // Ignore error
+        }
+    }, 25);
+}
 }

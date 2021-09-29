@@ -1,11 +1,11 @@
+<ng-select class="processingWidget" #select [items]="items" [ngModel]="value" (ngModelChange)="valueChange.emit($event)" appendTo="body" [clearable]="false" [virtualScroll]="true" (open)="opened(select)" bindLabel="name" >
+  <ng-template ng-label-tmp let-item="item">
+      <i [c8yIcon]="item.className" style="margin-right: 5px"></i>
+      <span>{{item.name}}</span>
+  </ng-template>
 
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="Icon Name" aria-label="Icon Name" [matAutocomplete]="auto" [formControl]="stateCtrl" />
-  <mat-autocomplete #auto="matAutocomplete" (optionSelected) ="valueChange.emit($event.option.value)" [displayWith]="displayFn">
-    <mat-option *ngFor="let item of filteredItems | async" [value]="item">
+  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
       <i [c8yIcon]="item.className" style="margin-right: 5px"></i>
       <span>{{item.name}} ({{item.className}})</span>
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
-
+  </ng-template>
+</ng-select>

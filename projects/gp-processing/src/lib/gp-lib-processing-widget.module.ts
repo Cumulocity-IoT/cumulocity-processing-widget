@@ -20,35 +20,21 @@ import { NgModule } from '@angular/core';
 import { GpLibProcessingWidgetComponent } from './gp-lib-processing-widget.component';
 import { CoreModule, HOOK_COMPONENTS} from '@c8y/ngx-components';
 import {GpLibProcessingConfig} from './gp-lib-processing-widget-config.component';
-import {MatButtonModule,
-        MatCardModule,
-        MatIconModule,
-        MatStepperModule,
-        MatTableModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatAutocompleteModule} from '@angular/material';
-import { IconSelectorModule } from './icon-selector/icon-selector.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatStepperModule } from '@angular/material/stepper';
 import * as preview from './preview-image';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IconSelectorComponent} from './icon-selector/icon-selector.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [GpLibProcessingWidgetComponent, GpLibProcessingConfig, IconSelectorComponent],
   imports: [
     CoreModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
     MatStepperModule,
     MatTableModule,
- //   MatFormFieldModule,
-    MatInputModule,
     FormsModule,
-    MatSelectModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule,
   ],
   entryComponents: [GpLibProcessingWidgetComponent, GpLibProcessingConfig, IconSelectorComponent],
   exports: [GpLibProcessingWidgetComponent, GpLibProcessingConfig, IconSelectorComponent],

@@ -12,7 +12,7 @@
   <div class="process-div">
     <div class="single-process-div" *ngFor="let element of displayStatus; let indexOfElement = index;">
       <div class="content-div">
-        <button mat-fab
+        <button class="btn btn-clean btn-icon stepper-button stepper-box-shadow"
           [ngClass]="{'status-completed': indexOfElement < index, 'status-inProces' : indexOfElement == index , 'status-default': indexOfElement > index  }">
           <i [ngClass]="'fa fa-'+matImages[indexOfElement] +' fa-2x'"></i>
         </button>

@@ -20,9 +20,7 @@
       <ng-container matColumnDef="displayStatus">
         <th mat-header-cell *matHeaderCellDef> Display Status </th>
         <td mat-cell *matCellDef="let element">
-          <mat-form-field class="example-full-width">
-            <input matInput type="text" name="displayStatus" [(ngModel)]="element.displayStatus" />
-          </mat-form-field>
+          <input type="text" class="form-control" name="displayStatus"  [(ngModel)]="element.displayStatus"/>
         </td>
       </ng-container>
 
@@ -30,9 +28,7 @@
       <ng-container matColumnDef="fieldValue">
         <th mat-header-cell *matHeaderCellDef> Field Value </th>
         <td mat-cell *matCellDef="let element">
-          <mat-form-field class="example-full-width">
-            <input matInput type="text" [(ngModel)]="element.fieldValue" />
-          </mat-form-field>
+          <input type="text" class="form-control"  [(ngModel)]="element.fieldValue"/>
         </td>
       </ng-container>
 
@@ -48,11 +44,11 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element ; let i = index">
-          <button mat-icon-button aria-label="Delete Row">
-            <i matTooltip="Delete Row" class="fa fa-trash fa-lg fa-icon-action" (click)="deleteRow(i)"></i>
+          <button aria-label="Delete Row" class="btn btn-clean btn-icon">
+            <i title="Delete Row" class="fa fa-trash fa-lg fa-icon-action" (click)="deleteRow(i)"></i>
           </button>
-          <button mat-icon-button aria-label="Insert New Row">
-            <i matTooltip="Insert New Row" class="fa fa-plus fa-lg fa-icon-action" (click)="addNewRow(i)"></i>
+          <button  class="btn btn-clean btn-icon" aria-label="Insert New Row">
+            <i title="Insert New Row" class="fa fa-plus fa-lg fa-icon-action" (click)="addNewRow(i)"></i>
           </button>
         </td>
       </ng-container>

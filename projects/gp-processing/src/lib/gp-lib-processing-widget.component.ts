@@ -35,15 +35,28 @@ export class GpLibProcessingWidgetComponent implements OnInit {
   index = -1;
   matImages = [];
   arrivalTime;
+  indoorEventType = '';
+  fieldName = '';
   constructor(public events: EventService, public realtimeService: Realtime, public inventory: InventoryService) {}
 
   ngOnInit() {
-    this.config.dataSource.map(row => {
-      this.displayStatus.push(row.displayStatus);
-      this.fieldValue.push(row.fieldValue);
-      this.matImages.push(row.matIcon.className);
-    });
-    this.deviceId = this.config.device.id;
+    if (this.config) {
+      this.config.dataSource.map(row => {
+        this.displayStatus.push(row.displayStatus);
+        this.fieldValue.push(row.fieldValue);
+        this.matImages.push(row.matIcon.className);
+      });
+      this.indoorEventType = this.config.indoorEventType;
+      this.deviceId = this.config.device.id;
+      this.fieldName = this.config.fieldName;
+    } else {
+      this.deviceId = '2422320',
+      this.displayStatus = [ 'Truck Depot', 'In Route', 'Pick Up Point'];
+      this.fieldValue = ['truckdepoleft', 'inroute', 'pickuppoint'];
+      this.matImages = ['truck', 'list', 'map-marker'];
+      this.indoorEventType = 'c8y_LocationUpdate';
+      this.fieldName = 'process';
+    }
     this.arrivalTime = new Date();
     this.fetchEvents();
   }
@@ -96,7 +109,7 @@ export class GpLibProcessingWidgetComponent implements OnInit {
 
     // tslint:disable-next-line: deprecation
     this.events.listBySource$(deviceId,  { pageSize: 3,
-      type: this.config.indoorEventType,
+      type: this.indoorEventType,
       dateTo: now.add(1, 'days').format('YYYY-MM-DD'),
       dateFrom: '1970-01-01'
     },
@@ -105,10 +118,10 @@ export class GpLibProcessingWidgetComponent implements OnInit {
       realtime: true,
     }).subscribe( res => {
       const lastEvent = res[0];
-      if (lastEvent.type === this.config.indoorEventType) {
-        if (lastEvent.hasOwnProperty(this.config.fieldName)) {
+      if (lastEvent && lastEvent.type === this.indoorEventType) {
+        if (lastEvent.hasOwnProperty(this.fieldName)) {
           this.arrivalTime = lastEvent.creationTime;
-          this.statusValue = lastEvent[this.config.fieldName];
+          this.statusValue = lastEvent[this.fieldName];
           this.fieldValue.map((singleValue, index) => {
             if (this.statusValue.includes(singleValue)) {
               this.index = index;
@@ -128,10 +141,10 @@ export class GpLibProcessingWidgetComponent implements OnInit {
       if (response && response.data) {
           const eventData = response.data;
           const lastEvent = eventData.data;
-          if (lastEvent.type === this.config.indoorEventType) {
-            if (lastEvent.hasOwnProperty(this.config.fieldName)) {
+          if (lastEvent.type === this.indoorEventType) {
+            if (lastEvent.hasOwnProperty(this.fieldName)) {
               this.arrivalTime = lastEvent.creationTime;
-              this.statusValue = lastEvent[this.config.fieldName];
+              this.statusValue = lastEvent[this.fieldName];
               this.fieldValue.map((singleValue, index) => {
                 if (this.statusValue.includes(singleValue)) {
                   this.index = index;
