@@ -108,15 +108,15 @@ export class GpLibProcessingWidgetComponent implements OnInit {
     // fetches the events for each device based of date
 
     // tslint:disable-next-line: deprecation
-    this.events.listBySource$(deviceId,  { pageSize: 3,
+    const filter = {
+      pageSize: 3,
       type: this.indoorEventType,
       dateTo: now.add(1, 'days').format('YYYY-MM-DD'),
-      dateFrom: '1970-01-01'
-    },
-    {
-      hot: true,
-      realtime: true,
-    }).subscribe( res => {
+      dateFrom: '1970-01-01',
+      source: deviceId
+    }
+    this.events.list(filter)
+    .then( res => {
       const lastEvent = res[0];
       if (lastEvent && lastEvent.type === this.indoorEventType) {
         if (lastEvent.hasOwnProperty(this.fieldName)) {
