@@ -1,11 +1,11 @@
 {
   "name": "gp-processing",
-  "version": "1.2.0",
-  "description": "This is an Angular 8 widget, which is designed to display the current process state based on the latest event. ",
+  "version": "2.0.0",
+  "description": "This is an Angular 11 widget, which is designed to display the current process state based on the latest event. ",
   "author": "Khushi Khanna - Software AG, Global Presales",
   "license": "Apache 2.0",
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14"
+    "@angular/common": "^11.1.2",
+    "@angular/core": "^11.1.2"
   }
 }

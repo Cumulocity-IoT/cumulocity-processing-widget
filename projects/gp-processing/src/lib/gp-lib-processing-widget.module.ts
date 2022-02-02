@@ -21,7 +21,6 @@ import { GpLibProcessingWidgetComponent } from './gp-lib-processing-widget.compo
 import { CoreModule, HOOK_COMPONENTS} from '@c8y/ngx-components';
 import {GpLibProcessingConfig} from './gp-lib-processing-widget-config.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatStepperModule } from '@angular/material/stepper';
 import * as preview from './preview-image';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IconSelectorComponent} from './icon-selector/icon-selector.component';
@@ -30,7 +29,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
   declarations: [GpLibProcessingWidgetComponent, GpLibProcessingConfig, IconSelectorComponent],
   imports: [
     CoreModule,
-    MatStepperModule,
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
