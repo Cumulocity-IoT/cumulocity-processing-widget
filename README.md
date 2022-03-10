@@ -12,7 +12,7 @@ To deliver the expected functionality one need to set/select the following confi
  4. Display Status for each state (atleast 1)
  5. Field value for each state (atleast 1)
  6. mat-icon name for each state(select)
- 7. Include child devices - You can toggle the slider if you want to include child devices also.
+ 7. Include child devices - You can toggle the slider if you want the results for child devices also.
 
 
 ### Please choose Processing Widget release based on Cumuloicty/Application builder version:
