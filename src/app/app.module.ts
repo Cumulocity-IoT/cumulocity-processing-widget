@@ -52,7 +52,7 @@ import {
 } from '@c8y/client';
 
 const auth = new BasicAuth({
-  user: '###',
+  user: '####',
   password: '###',
   tenant: '###'
 });
