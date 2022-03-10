@@ -32,6 +32,11 @@ export class GpLibProcessingConfig implements OnInit {
     constructor() {
   }
   ngOnInit() {
+    if (this.config.innerChild === undefined) {
+
+      this.config.innerChild = false;
+
+    }
     if (this.config.dataSource === undefined) {
       this.config.dataSource = [{displayStatus: '', fieldValue: '', matIcon: 'bathtub'}];
     }

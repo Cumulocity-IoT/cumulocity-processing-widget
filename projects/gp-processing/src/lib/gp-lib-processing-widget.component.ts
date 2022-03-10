@@ -30,6 +30,7 @@ export class GpLibProcessingWidgetComponent implements OnInit {
   displayStatus = [];
   fieldValue = [];
   deviceId: any;
+  innerChild: any;
   statusValue = '';
   realTimeEventSubs = [];
   index = -1;
@@ -50,60 +51,80 @@ export class GpLibProcessingWidgetComponent implements OnInit {
       this.deviceId = this.config.device.id;
       this.fieldName = this.config.fieldName;
     } else {
-      this.deviceId = '2422320',
-      this.displayStatus = [ 'Truck Depot', 'In Route', 'Pick Up Point'];
-      this.fieldValue = ['truckdepoleft', 'inroute', 'pickuppoint'];
-      this.matImages = ['truck', 'list', 'map-marker'];
-      this.indoorEventType = 'c8y_LocationUpdate';
-      this.fieldName = 'process';
+      // this.deviceId = '12179',
+      // this.displayStatus = ['Cleaning', 'Re packaging', 'Quality Check', 'Dispatch', 'In Service'];
+      // this.fieldValue = ['2138-1', '2138-2', '2138-3', '2138-4', '2138-5'];
+      // this.matImages = ['map-marker', 'map-marker', 'map-marker', 'map-marker','map-marker'];
+      // this.indoorEventType = 'c8y_LocationUpdate';
+      // this.fieldName = 's7y_BeaconId';
+      // // this.deviceId = '15085135',
+      // this.innerChild = true ;
+      // this.displayStatus = ['Buffering', 'AutoTuning', 'Learning', 'Monitoring'];
+      // this.fieldValue = ['Buffering', 'AutoTuning', 'Learning', 'Monitoring'];
+      // this.matImages = ['map-marker', 'map-marker', 'map-marker', 'map-marker','map-marker'];
+      // this.indoorEventType = 'c8y_nano_state';
+      // this.fieldName = 'state_flow';
     }
     this.arrivalTime = new Date();
     this.fetchEvents();
   }
   async getDeviceList() {
     let response: any = null;
+    let assetresponse: any = null;
     const filter: object = {
-      pageSize: 2000,
+      pageSize: 20000,
       withTotalPages: true,
     };
-    response = (await this.inventory.childDevicesList(this.deviceId, filter)).data;
-    // Check that whether the device has child devices or not
-    if (response.length === 0) {
-      this.fetchCurrentState(this.deviceId);
-    } else {
-      response.forEach(device => {
+    const deviceresp =(await this.inventory.detail(this.deviceId,filter)).data;
+    if(deviceresp.hasOwnProperty('c8y_IsDevice'))
+    {  
+      if(this.innerChild)
+      {
+        response = (await this.inventory.childDevicesList(this.deviceId, filter)).data;
+        // Check that whether the device has child devices or not
+        if (response.length === 0) {
+          this.fetchCurrentState(this.deviceId);
+        } else {
+          this.fetchCurrentState(this.deviceId);
+          response.forEach(device => {
+            this.fetchCurrentState(device.id);
+          });
+        }
+      }
+      else
+      {
+        this.fetchCurrentState(this.deviceId);
+      }
+    }
+    else if(deviceresp.hasOwnProperty('c8y_IsAsset') || deviceresp.hasOwnProperty('c8y_IsDeviceGroup'))
+    {
+      assetresponse = (await this.inventory.childAssetsList(this.deviceId, filter)).data;
+      if(assetresponse.length != 0){
+      assetresponse.forEach(async device => {
         this.fetchCurrentState(device.id);
+        if(this.innerChild){
+                  // Check that whether the device has child devices or not
+          response = (await this.inventory.childDevicesList(device.id, filter)).data;
+          if(response.length != 0)
+          {
+            response.forEach(childdevice => {
+              this.fetchCurrentState(childdevice.id);
+            });
+          }
+
+        }
+
       });
+    }
+    }
+    else {
+      alert ("Please select asset or a device");
     }
   }
   // Fetches the current state for a particular device Id
  async fetchCurrentState(deviceId) {
     const moment = moment_;
     const now = moment();
-    // const filter = { pageSize: 3,
-    //   source: deviceId,
-    //   type: this.config.indoorEventType,
-    //   dateTo: now.add(1, 'days').format('YYYY-MM-DD'),
-    //   dateFrom: '1970-01-01',
-    //   revert: false
-    // };
-    // const { data, res, paging } = await this.events.list(filter);
-    // console.log(data);
-    // console.log(res);
-    // const lastEvent = data[0];
-    // if (lastEvent.type === this.config.indoorEventType) {
-    //   if (lastEvent.hasOwnProperty(this.config.fieldName)) {
-    //     this.arrivalTime = lastEvent.creationTime;
-    //     this.statusValue = lastEvent[this.config.fieldName];
-    //     this.fieldValue.map((singleValue, index) => {
-    //       if (this.statusValue.includes(singleValue)) {
-    //         this.index = index;
-    //       }
-    //     });
-    //   } else if (this.arrivalTime !== undefined && Date.parse(this.arrivalTime) < Date.parse(lastEvent.creationTime)) {
-    //       this.index = this.displayStatus.length - 1;
-    //   }
-    // }
 
     // fetches the events for each device based of date
 
@@ -117,7 +138,7 @@ export class GpLibProcessingWidgetComponent implements OnInit {
     }
     this.events.list(filter)
     .then( res => {
-      const lastEvent = res[0];
+      const lastEvent = res.data[0];
       if (lastEvent && lastEvent.type === this.indoorEventType) {
         if (lastEvent.hasOwnProperty(this.fieldName)) {
           this.arrivalTime = lastEvent.creationTime;
