@@ -103,6 +103,7 @@ export class GpLibProcessingWidgetComponent implements OnInit {
       assetresponse.forEach(async device => {
         this.fetchCurrentState(device.id);
         if(this.innerChild){
+                  // Check that whether the device has child devices or not
           response = (await this.inventory.childDevicesList(device.id, filter)).data;
           if(response.length != 0)
           {
