@@ -12,6 +12,7 @@ To deliver the expected functionality one need to set/select the following confi
  4. Display Status for each state (atleast 1)
  5. Field value for each state (atleast 1)
  6. mat-icon name for each state(select)
+ 7. Include child devices - You can toggle the slider if you want to include child devices also.
 
 
 ### Please choose Processing Widget release based on Cumuloicty/Application builder version:
@@ -204,6 +205,7 @@ Table Values - add as many rows as many process steps are there
 5. Field Value - Add corresponding expected field values from field name.
 6. Display Status - Add the Display status names that you want to display in the UI, for each and every field value. 
 7. Icon - select the desired icons for each step from the dropdown 
+8. Include child devices - You can toggle the slider if you want the results for child devices also
 
 
 ## Troubleshooting
