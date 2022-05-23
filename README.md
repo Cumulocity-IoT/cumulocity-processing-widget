@@ -1,6 +1,5 @@
 # Cumulocity Widget - Process Widget [<img width="35" src="https://user-images.githubusercontent.com/67993842/97668428-f360cc80-1aa7-11eb-8801-da578bda4334.png"/>](https://github.com/SoftwareAG/cumulocity-processing-widget/releases/download/2.0.1/processing-runtime-widget-2.0.1.zip)
 
-##  Overview
 
 This is an Angular widget, which is designed to display the current process state based on the latest event.
 Updates the state whenever a new event is subscribed. 
