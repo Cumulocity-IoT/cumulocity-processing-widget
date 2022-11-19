@@ -2,7 +2,7 @@
 
 
 This is an Angular widget, which is designed to display the current process state based on the latest event.
-Updates the state whenever a new event is subscribed. 
+Updates the state whenever a new event is received. 
 
 To deliver the expected functionality one need to set/select the following configuration parameters:
  1. Event Type(required)
