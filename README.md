@@ -34,7 +34,7 @@ To deliver the expected functionality one need to set/select the following confi
 
 
   
-## Supported Cumulocity Environments
+## Supported Cumulocity Environments:
   
 *  **App Builder:** Tested with Cumulocity App Builder version 1.3.0.
   
