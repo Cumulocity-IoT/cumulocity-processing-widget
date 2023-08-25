@@ -4,6 +4,7 @@
 This is an Angular widget, which is designed to display the current process state based on the latest event.
 Updates the state whenever a new event is received. 
 
+> ### ⚠️ This project is no longer under development. Please use [Processing Widget Plugin for Cumulocity](https://github.com/SoftwareAG/cumulocity-processing-widget-plugin) for Application Builder >=2.x.x and Cumulocity >=1016.x.x⚠️
 To deliver the expected functionality one need to set/select the following configuration parameters:
  1. Event Type(required)
  2. Device/Group (select)
